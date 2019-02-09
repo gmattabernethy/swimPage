@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>Swimity swim swim</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="standard.css">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>-->
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="index.html">My Times</a>
+        <a class="nav-item nav-link" href="goals.html">My Goals</a>
+        <a class="nav-item nav-link" href="adjuster.html">Altitude Adjuster <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active" href="#">Pace Calculator</a>
+        <a class="nav-item nav-link" href="converter.html">Distance Converter</a>
+      </div>
+    </div>
+  </nav>
+
+	<div class="main" style="padding-top: 150px">
+		
+		<form>
+			<div class="form-row justify-content-center">
+				<div class="form-group col-md-2 input">
+					<label for="inputTime">Time:</label>
+					<input type="text" class="form-control form-control-lg" id="inputTime" placeholder="00:00.00">
+				</div>
+
+				<div class="form-group col-md-2 input">
+					<label for="inputState">Distance:</label>
+					<select id="inputState" class="form-control form-control-lg">
+						<option selected>Choose...</option>
+						<option>50</option>
+						<option>100</option>
+						<option>200</option>
+						<option>400/500</option>
+						<option>800/1000</option>
+						<option>1500/1650</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-row justify-content-center" style="padding-top: 75px">
+				<div class="form-group col-md-2" >
+					<button type="button" class="btn btn-submit">Calculate</button>
+				</div>
+			</div>
+		</form>
+		
+	</div>
+
+	<div class="container" style="padding-top: 75px;">
+        <div class="row justify-content-center">
+            <div class="col-1 info">
+                <p>1st</p>
+            </div>
+			<div class="col-2 info">
+
+			</div>
+			<div class="col-2 info">
+				<p>00:00.00</p>
+			</div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-1 info">
+                <p>2nd</p>
+            </div>
+            <div class="col-2 info">
+                
+            </div>
+            <div class="col-2 info">
+                <p>00:00.00</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-1 info">
+                <p>3rd</p>
+            </div>
+            <div class="col-2 info">
+                
+            </div>
+            <div class="col-2 info">
+                <p>00:00.00</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-1 info">
+                <p>4th</p>
+            </div>
+            <div class="col-2 info">
+                
+            </div>
+            <div class="col-2 info">
+                <p>00:00.00</p>
+            </div>
+        </div>
+	</div>
+
+</body>
+
+</html>
