@@ -3,8 +3,11 @@
 <head>
     <!--<meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-    <title>Swimity swim swim</title>
+    <title>Swim Calculator</title>
+    <link rel="shortcut icon" type="image/x-icon" href="swim-icon.jpg" />
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="standard.css">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
@@ -12,17 +15,16 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand active" href="#"><img src="swim-icon.jpg" style="height: 24px; padding-bottom: 3px;"> Swim Calculator</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-item nav-link active" href="#">My Times <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="goals.html">My Goals</a>
         <a class="nav-item nav-link" href="adjuster.html">Altitude Adjuster</a>
         <a class="nav-item nav-link" href="calulator.html">Pace Calculator</a>
-        <a class="nav-item nav-link" href="converter.html">Distance Converter</a>
+        <a class="nav-item nav-link" href="converter.html">Course Converter</a>
       </div>
     </div>
   </nav>
@@ -34,132 +36,262 @@
             <p>50 Freestyle</p>
           </div>
           <div class="col-2 info">
-            <p>time 1</p>
+            <p id="1">best</p>
           </div>
-          <div class="col-1 gap"></div>
-          <div class="col-3 info">
-            <p>200 Butterfly</p>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(1)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
           </div>
           <div class="col-2 info">
-            <p>time 2</p>
+            <p id="2">goal</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(2)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
           </div>
         </div>
   
         <div class="row justify-content-center">
-          
           <div class="col-3 info">
             <p>100 Freestyle</p>
           </div>
           <div class="col-2 info">
-            <p>time 1</p>
+            <p id="3">best</p>
           </div>
-          <div class="col-1 gap"></div>
-          <div class="col-3 info">
-            <p>100 Backstroke</p>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(3)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
           </div>
           <div class="col-2 info">
-            <p>time 2</p>
+            <p id="4">goal</p>
           </div>
-          <div class="col-2 gap"></div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(4)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
         </div>
   
         <div class="row justify-content-center">
-          
           <div class="col-3 info">
             <p>200 Freestyle</p>
           </div>
           <div class="col-2 info">
-            <p>time 1</p>
+            <p id="5">best</p>
           </div>
-          <div class="col-1 gap"></div>
-          <div class="col-3 info">
-            <p>200 Backstroke</p>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(5)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
           </div>
           <div class="col-2 info">
-            <p>time 2</p>
+            <p id="6">goal</p>
           </div>
-          <div class="col-2 gap"></div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(6)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
         </div>
   
         <div class="row justify-content-center">
-          
           <div class="col-3 info">
             <p>500 Freestyle</p>
           </div>
           <div class="col-2 info">
-            <p>time 1</p>
+            <p id="7">best</p>
           </div>
-          <div class="col-1 gap"></div>
-          <div class="col-3 info">
-            <p>100 Breaststroke</p>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(7)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
           </div>
           <div class="col-2 info">
-            <p>time 2</p>
+            <p id="8">goal</p>
           </div>
-          <div class="col-2 gap"></div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(8)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
         </div>
 
         <div class="row justify-content-center">
-          
           <div class="col-3 info">
             <p>1000 Freestyle</p>
           </div>
           <div class="col-2 info">
-            <p>time 1</p>
+            <p id="9">best</p>
           </div>
-          <div class="col-1 gap"></div>
-          <div class="col-3 info">
-            <p>200 Breaststroke</p>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(9)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
           </div>
           <div class="col-2 info">
-            <p>time 2</p>
+            <p id="10">goal</p>
           </div>
-          <div class="col-2 gap"></div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(10)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
         </div>
   
         <div class="row justify-content-center">
-          
           <div class="col-3 info">
             <p>1650 Freestyle</p>
           </div>
           <div class="col-2 info">
-            <p>time 1</p>
+            <p id="11">best</p>
           </div>
-          <div class="col-1 gap"></div>
-          <div class="col-3 info">
-            <p>200 I.M.</p>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(11)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
           </div>
           <div class="col-2 info">
-            <p>time 2</p>
+            <p id="12">goal</p>
           </div>
-          <div class="col-2 gap"></div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(12)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
         </div>
   
         <div class="row justify-content-center">
-          
+          <div class="col-3 info">
+            <p>100 Backstroke</p>
+          </div>
+          <div class="col-2 info">
+            <p id="13">best</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(13)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+          <div class="col-2 info">
+            <p id="14">goal</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(14)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-3 info">
+            <p>200 Backstroke</p>
+          </div>
+          <div class="col-2 info">
+            <p id="15">best</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(15)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+          <div class="col-2 info">
+            <p id="16">goal</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(16)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
           <div class="col-3 info">
             <p>100 Butterfly</p>
           </div>
           <div class="col-2 info">
-            <p>time 1</p>
+            <p id="17">best</p>
           </div>
-          <div class="col-1 gap"></div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(17)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+          <div class="col-2 info">
+            <p id="18">goal</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(18)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-3 info">
+            <p>200 Butterfly</p>
+          </div>
+          <div class="col-2 info">
+            <p id="19">best</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(19)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+          <div class="col-2 info">
+            <p id="20">goal</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(20)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-3 info">
+            <p>100 Breaststroke</p>
+          </div>
+          <div class="col-2 info">
+            <p id="21">best</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(21)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+          <div class="col-2 info">
+            <p id="22">goal</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(22)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-3 info">
+            <p>200 Breaststroke</p>
+          </div>
+          <div class="col-2 info">
+            <p id="23">best</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(23)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+          <div class="col-2 info">
+            <p id="24">goal</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(24)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-3 info">
+            <p>200 I.M.</p>
+          </div>
+          <div class="col-2 info">
+            <p id="25">best</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(25)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+          <div class="col-2 info">
+            <p id="26">goal</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(26)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
           <div class="col-3 info">
             <p>400 I.M.</p>
           </div>
           <div class="col-2 info">
-            <p>time 2</p>
+            <p id="27">best</p>
           </div>
-          <div class="col-2 gap"></div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(27)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+          <div class="col-2 info">
+            <p id="28">goal</p>
+          </div>
+          <div class="col-1 gap">
+            <button class="btn-edit" onclick="edit(28)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="btn-holder">
-        <button type="button" class="btn mybtn">Edit Times</button>
-    </div>
-    
+      </div>
+    </div>   
 
 </body>
 
+<script>
+  function edit(id){
+    var text = prompt("Enter new time");
+    document.getElementById(id).innerHTML = text;
+  }
+</script>
 </html>

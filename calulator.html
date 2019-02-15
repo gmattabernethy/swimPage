@@ -3,7 +3,9 @@
 <head>
     <!--<meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-    <title>Swimity swim swim</title>
+    <title>Swim Calculator</title>
+    <link rel="shortcut icon" type="image/x-icon" href="swim-icon.jpg" />
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="standard.css">
 		<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,29 +14,40 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand active" href="#"><img src="swim-icon.jpg" style="height: 24px; padding-bottom: 3px;"> Swim Calculator</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="index.html">My Times</a>
-        <a class="nav-item nav-link" href="goals.html">My Goals</a>
-        <a class="nav-item nav-link" href="adjuster.html">Altitude Adjuster <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link active" href="#">Pace Calculator</a>
-        <a class="nav-item nav-link" href="converter.html">Distance Converter</a>
+        <a class="nav-item nav-link" href="adjuster.html">Altitude Adjuster</a>
+        <a class="nav-item nav-link active" href="#">Pace Calculator <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="converter.html">Course Converter</a>
       </div>
     </div>
   </nav>
 
-	<div class="main" style="padding-top: 150px">
+	<div class="main" style="padding-top: 100px">
 		
 		<form>
 			<div class="form-row justify-content-center">
-				<div class="form-group col-md-2 input">
-					<label for="inputTime">Time:</label>
-					<input type="text" class="form-control form-control-lg" id="inputTime" placeholder="00:00.00">
-				</div>
+          <div class="form-group col-md-2 input">
+              <label for="inputTime">Time:</label>
+              <div class="form-row justify-content-center">
+                <div class="form-group col-md-3 input">
+                  <input type="number" class="form-control form-control-lg" id="inputTime" value="0" min="0" max="59">
+                </div>
+                <div class="form-group col-md-1 delimiter">:</div>
+                <div class="form-group col-md-3 input">
+                  <input type="number" class="form-control form-control-lg" id="inputTime" value="0" min="0" max="59">
+                </div>
+                <div class="form-group col-md-1 delimiter">.</div>
+                <div class="form-group col-md-3 input">
+                  <input type="number" class="form-control form-control-lg" id="inputTime" value="0" min="0" max="99">
+                </div>
+              </div>
+            </div>
 
 				<div class="form-group col-md-2 input">
 					<label for="inputState">Distance:</label>
@@ -59,7 +72,7 @@
 		
 	</div>
 
-	<div class="container" style="padding-top: 75px;">
+	<div class="container">
         <div class="row justify-content-center">
             <div class="col-1 info">
                 <p>1st</p>
