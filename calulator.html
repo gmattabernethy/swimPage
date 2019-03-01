@@ -36,29 +36,30 @@
               <label for="inputTime">Time:</label>
               <div class="form-row justify-content-center">
                 <div class="form-group col-md-3 input">
-                  <input type="number" class="form-control form-control-lg" id="inputTime" value="0" min="0" max="59">
+                  <input type="number" class="form-control form-control-lg" onClick="this.select();" id="mins" value="0" min="0" max="59">
                 </div>
                 <div class="form-group col-md-1 delimiter">:</div>
                 <div class="form-group col-md-3 input">
-                  <input type="number" class="form-control form-control-lg" id="inputTime" value="0" min="0" max="59">
+                  <input type="number" class="form-control form-control-lg" onClick="this.select();" id="secs" value="0" min="0" max="59">
                 </div>
                 <div class="form-group col-md-1 delimiter">.</div>
                 <div class="form-group col-md-3 input">
-                  <input type="number" class="form-control form-control-lg" id="inputTime" value="0" min="0" max="99">
+                  <input type="number" class="form-control form-control-lg" onClick="this.select();" id="hnds" value="0" min="0" max="99">
                 </div>
               </div>
             </div>
 
 				<div class="form-group col-md-2 input">
-					<label for="inputState">Distance:</label>
-					<select id="inputState" class="form-control form-control-lg">
+					<label for="distance">Distance:</label>
+					<select id="distance" class="form-control form-control-lg">
 						<option selected>Choose...</option>
-						<option>50</option>
 						<option>100</option>
 						<option>200</option>
-						<option>400/500</option>
-						<option>800/1000</option>
-						<option>1500/1650</option>
+            <option>400</option>
+            <option>500</option>
+            <option>800</option>
+            <option>1000</option>
+            <option>1500</option>
 					</select>
 				</div>
 			</div>
@@ -72,61 +73,154 @@
 		
 	</div>
 
-	<div class="container">
-        <div class="row justify-content-center">
-            <div class="col-1 info">
-                <p>1st</p>
-            </div>
-			<div class="col-2 info">
-
-			</div>
-			<div class="col-2 info">
-				<p>00:00.00</p>
-			</div>
-        </div>
-        
-        <div class="row justify-content-center">
-            <div class="col-1 info">
-                <p>2nd</p>
-            </div>
-            <div class="col-2 info">
-                
-            </div>
-            <div class="col-2 info">
-                <p>00:00.00</p>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-1 info">
-                <p>3rd</p>
-            </div>
-            <div class="col-2 info">
-                
-            </div>
-            <div class="col-2 info">
-                <p>00:00.00</p>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-1 info">
-                <p>4th</p>
-            </div>
-            <div class="col-2 info">
-                
-            </div>
-            <div class="col-2 info">
-                <p>00:00.00</p>
-            </div>
-        </div>
+	<div class="container" id="paces">
+      
 	</div>
 
 </body>
 
 <script>
   function calculate(){
-    alert("this isn't implemented still");
+    var mins = document.getElementById("mins").value;
+    var secs = document.getElementById("secs").value;
+    var hnds = document.getElementById("hnds").value;
+  
+    if(mins == null) mins = 0;
+    if(secs == null) secs = 0;
+    if(hnds == null) hnds = 0;
+
+    var time = (mins*60) + +secs + +(hnds/100);
+
+    if(time == 0){
+      alert("Please Enter a time");
+      return;
+    }
+
+    if(mins < 0 || secs < 0 || hnds < 0){
+      alert("Times can't be negative");
+      return;
+    } 
+
+    if(secs > 59){
+      alert("Seconds must be less than 60");
+      return;
+    }
+
+    if(hnds > 99){
+      alert("Hundredths must be less than 100");
+      return;
+    }
+    
+    var distance = document.getElementById("distance");
+    var numParts = 4;
+    var partLength = "50";
+
+    switch(distance.selectedIndex){
+      case 0:
+        alert('Select a distance');
+        return;
+
+      case 1:
+        partLength = "25";
+        break;
+
+      case 2:
+        break;
+
+      case 3:
+        partLength = "100";
+        break;
+
+      case 4:
+        numParts = 5;
+        partLength = "100";
+        break;
+
+      case 5:
+        numParts = 8;
+        partLength = "100";
+        break;
+
+      case 6:
+        numParts = 10;
+        partLength = "100";
+        break;
+
+      case 7:
+        numParts = 15;
+        partLength = "100";
+        break;
+    }
+
+    var diff = 2;
+    if(distance.selectedIndex == 1) diff = 1;
+
+    var firstTime = time/numParts - diff;
+    var otherTimes = time/numParts + diff/numParts;
+
+    var text = "";
+
+    for(var i = 1; i <= numParts; i++){
+      var cardinal;
+      var pace = numString(otherTimes);
+      if(i == 1){ 
+        cardinal = "1st";
+        pace = numString(firstTime);
+      }
+      else if(i == 2) cardinal = "2nd";
+      else if(i == 3) cardinal = "3rd";
+      else cardinal = i + "th";
+
+      text +='<div class="row justify-content-center">';
+      text +='<div class="col-1 info"><p>'+cardinal+'</p></div>';
+      text +='<div class="col-1 info">'+partLength+'</div>';
+      text +='<div class="col-2 info"><p>'+pace+'</p></div></div>';
+    }
+
+    text +='<div class="row justify-content-center">';
+
+    var table = document.getElementById("paces");
+    table.innerHTML = text;
+  }
+
+  function numString(time){
+    var mins = Math.floor(time/60);
+    var secs = Math.floor(time - (mins*60));
+    var hnds = Math.floor((time - (mins*60) - secs)*100);
+
+    if(hnds < 0){
+      hnds += 100;
+      secs--;
+    }
+    else if(hnds > 99){
+      hnds -= 100;
+      secs++;
+    }
+
+    if(secs < 0){
+      secs += 60;
+      mins--;
+    }
+    else if(secs > 59){
+      secs -= 60;
+      mins++;
+    }
+
+    var text = "";
+  
+    if(mins > 0){
+      text += mins.toString() + ":";
+    }
+    if(secs < 10){
+      text += "0";
+    }
+    text += secs.toString() + ".";
+    if(hnds < 10){
+      text += "0";
+    }
+    text += hnds.toString();
+
+    return text;
   }
 </script>
 
